@@ -71,6 +71,8 @@ public class SumUp extends CordovaPlugin {
     private static final int PAYMENT_ERROR = 117;
     private static final int NO_AFFILIATE_KEY = 118;
 
+    private static final int REQUEST_CODE_CARD_READER_PAGE = 4;
+
     private CallbackContext callback = null;
 
     @Override
@@ -362,6 +364,7 @@ public class SumUp extends CordovaPlugin {
 
         Runnable runnable = () -> {
             SumUpAPI.checkout(cordova.getActivity(), payment, REQUEST_CODE_PAYMENT);
+            SumUpAPI.openCardReaderPage(cordova.getActivity(), REQUEST_CODE_CARD_READER_PAGE);
         };
 
         callback = callbackContext;
